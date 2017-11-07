@@ -11,7 +11,7 @@ import treegen
 
 
 # Delay between tweets in seconds.
-DELAY = 300
+DELAY = 600
 
 if __name__ == "__main__":
     HERE = path.abspath(path.dirname(__file__))
@@ -27,10 +27,18 @@ if __name__ == "__main__":
 
         # Black and white/color switch.
         LOG.info("Picking tree type.")
-        if random.choice(range(5)) < 1:
-            LOG.info("Black and white tree.")
-            tree_info = treegen.TreeInfo(colors=False, extra_branching=False,
-                                          image_path=IMAGE_PATH)
+        if random.choice(range(3)) < 1:
+
+            # Invert sometimes.
+            if random.choice(range(4)) < 1:
+                LOG.info("White and black tree.")
+                tree_info = treegen.TreeInfo(colors=False, inverted=True, extra_branching=False,
+                                              image_path=IMAGE_PATH)
+
+            else:
+                LOG.info("Black and white tree.")
+                tree_info = treegen.TreeInfo(colors=False, extra_branching=False,
+                                              image_path=IMAGE_PATH)
 
         else:
             LOG.info("Colorful tree.")
@@ -44,5 +52,3 @@ if __name__ == "__main__":
         status = BOT_SKELETON.send_with_one_media(f"Here's a tree!", IMAGE_PATH)
 
         BOT_SKELETON.nap()
-
-        break
