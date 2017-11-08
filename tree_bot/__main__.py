@@ -24,28 +24,32 @@ if __name__ == "__main__":
         IMAGE_PATH = path.join(HERE, f"test-{datetime.now()}.png")
 
         # Pick what we're tweeting.
+        PRESETS = {
+            "White and black": treegen.TreeInfo(colors=False, inverted=True, extra_branching=False,
+                                                image_path=IMAGE_PATH),
+
+            "Black and white": treegen.TreeInfo(colors=False, extra_branching=False,
+                                                image_path=IMAGE_PATH),
+
+            "Summer": treegen.TreeInfo(season=treegen.Seasons.SUMMER, image_path=IMAGE_PATH),
+
+            "Winter": treegen.TreeInfo(season=treegen.Seasons.WINTER, image_path=IMAGE_PATH),
+
+            "Fall (one-color)": treegen.TreeInfo(season=treegen.Seasons.FALL,
+                                                 image_path=IMAGE_PATH),
+
+            "Fall (multi-color)": treegen.TreeInfo(season=treegen.Seasons.FALL, mixed_fall=True,
+                                                  image_path=IMAGE_PATH),
+        }
+
+
 
         # Black and white/color switch.
         LOG.info("Picking tree type.")
-        if random.choice(range(3)) < 1:
+        tree_desc = random.choice(list(PRESETS.keys()))
+        tree_info = PRESETS[tree_desc]
 
-            # Invert sometimes.
-            if random.choice(range(4)) < 1:
-                LOG.info("White and black tree.")
-                tree_info = treegen.TreeInfo(colors=False, inverted=True, extra_branching=False,
-                                              image_path=IMAGE_PATH)
-
-            else:
-                LOG.info("Black and white tree.")
-                tree_info = treegen.TreeInfo(colors=False, extra_branching=False,
-                                              image_path=IMAGE_PATH)
-
-        else:
-            LOG.info("Colorful tree.")
-            tree_info = treegen.TreeInfo(image_path=IMAGE_PATH)
-
-            LOG.info(f"Season of tree is {tree_info.season}")
-
+        LOG.info(f"Picked {tree_desc}. Drawing.")
         treegen.draw(tree_info)
 
         LOG.info("Sending out the tree.")
@@ -53,6 +57,9 @@ if __name__ == "__main__":
         TEXT = random.choice([
             "Here's a tree!",
             "Here's a tree.",
+            "TREE",
+            "tree",
+            "this is a tree",
             "I've drawn a tree for you.",
             "I've drawn a tree for you!",
             "🌳",
