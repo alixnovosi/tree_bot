@@ -11,7 +11,7 @@ import treegen
 
 
 # Delay between tweets in seconds.
-DELAY = 600
+DELAY = 3600
 
 if __name__ == "__main__":
     HERE = path.abspath(path.dirname(__file__))
@@ -50,7 +50,7 @@ if __name__ == "__main__":
         tree_info = PRESETS[tree_desc]
 
         LOG.info(f"Picked {tree_desc}. Drawing.")
-        treegen.draw(tree_info)
+        tree_info.draw()
 
         LOG.info("Sending out the tree.")
 
