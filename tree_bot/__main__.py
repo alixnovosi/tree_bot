@@ -49,6 +49,16 @@ if __name__ == "__main__":
         treegen.draw(tree_info)
 
         LOG.info("Sending out the tree.")
-        status = BOT_SKELETON.send_with_one_media(f"Here's a tree!", IMAGE_PATH)
+
+        TEXT = random.choice([
+            "Here's a tree!",
+            "Here's a tree.",
+            "I've drawn a tree for you.",
+            "I've drawn a tree for you!",
+            "🌳",
+            "Please, have a tree picture.",
+        ])
+
+        status = BOT_SKELETON.send_with_one_media(TEXT, IMAGE_PATH)
 
         BOT_SKELETON.nap()
