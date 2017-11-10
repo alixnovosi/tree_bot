@@ -13,13 +13,14 @@ setup(author="Andrew Michaud",
           "console_scripts": ["tree_bot = tree_bot.__main__:main"]
       },
 
-      install_requires=["botskeleton>=1.0.4", "treegen"],
+      install_requires=["botskeleton>=1.1.0", "treegen"],
 
       license="BSD3",
 
       name="tree_bot",
 
       packages=find_packages(),
+      python_requires=">=3.6",
 
       # Project"s main homepage
       url="https://github.com/andrewmichaud/tree_bot",
