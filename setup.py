@@ -13,7 +13,7 @@ setup(author="Andrew Michaud",
           "console_scripts": ["tree_bot = tree_bot.__main__:main"]
       },
 
-      install_requires=["botskeleton>=1.1.0", "treegen"],
+      install_requires=["botskeleton>=1.2.2", "treegen"],
 
       license="BSD3",
 
