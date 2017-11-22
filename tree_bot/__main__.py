@@ -40,6 +40,7 @@ if __name__ == "__main__":
 
             "Fall (multi-color)": treegen.TreeInfo(season=treegen.Seasons.FALL, mixed_fall=True,
                                                   image_path=IMAGE_PATH),
+            "Spring": treegen.TreeInfo(season=treegen.Seasons.SPRING, image_path=IMAGE_PATH),
         }
 
 
