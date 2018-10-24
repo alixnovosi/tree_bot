@@ -38,7 +38,7 @@ if __name__ == "__main__":
                 "description": "Black and white",
                 "obj": treegen.TreeInfo(colors=False, extra_branching=False,
                                                 image_path=IMAGE_PATH),
-                "caption": (f"{COMMON_CAPTION} It is white, on a black"
+                "caption": (f"{COMMON_CAPTION} It is black, on a white"
                             " background."
                             ),
             },
