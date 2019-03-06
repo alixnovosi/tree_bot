@@ -1,7 +1,7 @@
 """Main class for bot."""
 
+import os
 import random
-import sys
 import time
 from datetime import datetime
 from os import path
@@ -117,5 +117,7 @@ if __name__ == "__main__":
         ])
 
         status = BOT_SKELETON.send_with_one_media(TEXT, IMAGE_PATH, TREE_TYPE["caption"])
+
+        os.remove(IMAGE_PATH)
 
         BOT_SKELETON.nap()
